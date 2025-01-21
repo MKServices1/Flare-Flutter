@@ -59,10 +59,10 @@ class ListItem extends StatelessWidget {
     this.called,
   });
 
-  final String name;
-  final String place;
-  final String date;
-  final bool called;
+  final String? name;
+  final String? place;
+  final String? date;
+  final bool? called;
 
   @override
   Widget build(BuildContext context) {

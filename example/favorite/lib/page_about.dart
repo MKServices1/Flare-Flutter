@@ -3,7 +3,7 @@ import 'package:favorite/buttons_row.dart';
 
 class PageAbout extends StatelessWidget {
   const PageAbout({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -64,7 +64,7 @@ Cheyenne travels home via airplane (something he had previously had a strong pho
                   onPressed: () => {},
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
-                    primary: const Color.fromARGB(255, 2, 101, 252),
+                    backgroundColor: const Color.fromARGB(255, 2, 101, 252),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 25, vertical: 18),
                   ),

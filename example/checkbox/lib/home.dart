@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed('/settings');
               },
-              style: TextButton.styleFrom(primary: Colors.pinkAccent),
+              style: TextButton.styleFrom(backgroundColor: Colors.pinkAccent),
               child: const Text('Settings'),
             )
           ],

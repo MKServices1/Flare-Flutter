@@ -35,7 +35,7 @@ class _SettingsState extends State<Settings> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  style: TextButton.styleFrom(primary: Colors.pinkAccent),
+                  style: TextButton.styleFrom(backgroundColor: Colors.pinkAccent),
                   child: const Text('Back'),
                 )
               ],

@@ -12,7 +12,7 @@ class HouseController extends FlareController {
   static const double DemoMixSpeed = 10;
   static const double FPS = 60;
 
-  final OnUpdated demoUpdated;
+  final OnUpdated? demoUpdated;
 
   HouseController({this.demoUpdated});
 

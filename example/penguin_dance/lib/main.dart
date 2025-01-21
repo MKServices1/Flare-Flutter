@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
+  MyHomePage({Key? key, this.title}) : super(key: key);
+  final String? title;
 
   @override
   _MyHomePageState createState() => new _MyHomePageState();
@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> with FlareController {
   double _rockTime = 0.0;
   bool _isPaused = false;
 
-  ActorAnimation _rock;
+  ActorAnimation? _rock;
 
   @override
   void initialize(FlutterActorArtboard artboard) {
@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> with FlareController {
   @override
   bool advance(FlutterActorArtboard artboard, double elapsed) {
     _rockTime += elapsed * _speed;
-    _rock.apply(_rockTime % _rock.duration, artboard, _rockAmount);
+    _rock?.apply(_rockTime % _rock!.duration, artboard, _rockAmount);
     return true;
   }
 
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> with FlareController {
   Widget build(BuildContext context) {
     return new Scaffold(
       backgroundColor: Colors.grey,
-      appBar: new AppBar(title: new Text(widget.title)),
+      appBar: new AppBar(title: new Text(widget.title??"")),
       body: new Stack(
         children: [
           Positioned.fill(
@@ -102,9 +102,9 @@ class _MyHomePageState extends State<MyHomePage> with FlareController {
                             style: TextStyle(color: Colors.white)),
                         new Checkbox(
                           value: _isPaused,
-                          onChanged: (bool value) {
+                          onChanged: (bool? value) {
                             setState(() {
-                              _isPaused = value;
+                              _isPaused = value!;
                             });
                           },
                         )

@@ -22,16 +22,16 @@ class CupertinoRefreshControlDemo extends StatefulWidget {
 
 class _CupertinoRefreshControlDemoState
     extends State<CupertinoRefreshControlDemo> with FlareController {
-  List<List<String>> randomizedContacts;
+  List<List<String>>? randomizedContacts;
 
-  ActorAnimation _loadingAnimation;
-  ActorAnimation _successAnimation;
-  ActorAnimation _pullAnimation;
-  ActorAnimation _cometAnimation;
+  ActorAnimation? _loadingAnimation;
+  ActorAnimation? _successAnimation;
+  ActorAnimation? _pullAnimation;
+  ActorAnimation? _cometAnimation;
 
-  RefreshIndicatorMode _refreshState;
-  double _pulledExtent;
-  double _refreshTriggerPullDistance;
+  RefreshIndicatorMode? _refreshState;
+  double? _pulledExtent;
+  double? _refreshTriggerPullDistance;
   double _successTime = 0.0;
   double _loadingTime = 0.0;
   double _cometTime = 0.0;
@@ -46,26 +46,26 @@ class _CupertinoRefreshControlDemoState
   void setViewTransform(Mat2D viewTransform) {}
 
   bool advance(FlutterActorArtboard artboard, double elapsed) {
-    double animationPosition = _pulledExtent / _refreshTriggerPullDistance;
+    double animationPosition = _pulledExtent! / _refreshTriggerPullDistance!;
     animationPosition *= animationPosition;
     _cometTime += elapsed;
-    _cometAnimation.apply(_cometTime % _cometAnimation.duration, artboard, 1.0);
-    _pullAnimation.apply(
-        _pullAnimation.duration * animationPosition, artboard, 1.0);
+    _cometAnimation?.apply(_cometTime % _cometAnimation!.duration, artboard, 1.0);
+    _pullAnimation?.apply(
+        _pullAnimation!.duration * animationPosition, artboard, 1.0);
     if (_refreshState == RefreshIndicatorMode.refresh ||
         _refreshState == RefreshIndicatorMode.armed) {
       _successTime += elapsed;
-      if (_successTime >= _successAnimation.duration) {
+      if (_successTime >= _successAnimation!.duration) {
         _loadingTime += elapsed;
       }
     } else {
       _successTime = _loadingTime = 0.0;
     }
-    if (_successTime >= _successAnimation.duration) {
-      _loadingAnimation.apply(
-          _loadingTime % _loadingAnimation.duration, artboard, 1.0);
+    if (_successTime >= _successAnimation!.duration) {
+      _loadingAnimation!.apply(
+          _loadingTime % _loadingAnimation!.duration, artboard, 1.0);
     } else if (_successTime > 0.0) {
-      _successAnimation.apply(_successTime, artboard, 1.0);
+      _successAnimation!.apply(_successTime, artboard, 1.0);
     }
     return true;
   }
@@ -146,10 +146,10 @@ class _CupertinoRefreshControlDemoState
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
                       return ListItem(
-                        name: randomizedContacts[index][0],
-                        place: randomizedContacts[index][1],
-                        date: randomizedContacts[index][2],
-                        called: randomizedContacts[index][3] == 'true',
+                        name: randomizedContacts![index][0],
+                        place: randomizedContacts![index][1],
+                        date: randomizedContacts![index][2],
+                        called: randomizedContacts![index][3] == 'true',
                       );
                     },
                     childCount: 20,

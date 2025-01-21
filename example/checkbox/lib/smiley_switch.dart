@@ -6,7 +6,7 @@ class SmileySwitch extends StatelessWidget {
   final VoidCallback onToggle;
   final bool snapToEnd;
 
-  SmileySwitch(this.isOn, {this.snapToEnd, this.onToggle});
+  SmileySwitch(this.isOn, {required this.snapToEnd,required this.onToggle});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

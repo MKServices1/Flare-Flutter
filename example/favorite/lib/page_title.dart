@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class PageTitle extends StatelessWidget {
   const PageTitle({
-    Key key,
-    @required this.titleWidth,
-    @required this.titleHeight,
+    Key? key,
+    required this.titleWidth,
+    required this.titleHeight,
   }) : super(key: key);
 
   final double titleWidth;
